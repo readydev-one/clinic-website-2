@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="language" content="english" />
+    <meta name="handheldFriendly" content="true" />
+    <meta name="robots" content="index,follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Zam Zam Sample 2</title>
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta
+      property="og:description"
+      content="Compassionate elder care home offering personalized dementia, nursing, and end-of-life care services. Safe, supportive environment for seniors in Alberta. Call us today!"
+    />
+    <link rel="icon" href="" type="image/svg" />
+    <style>
+      /* Basic styles for the button */
+      .hamburger-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+      }
+
+      /* SVG styles for lines */
+      .line {
+        fill: none;
+        stroke: #424242;
+        stroke-width: 12;
+        stroke-linecap: round;
+        transition: all 0.4s ease;
+        transform-origin: center;
+      }
+
+      /* Hamburger animation */
+      .line1 {
+        transform: translateY(-12px);
+      }
+      .line3 {
+        transform: translateY(12px);
+      }
+
+      /* Close button styles */
+      .active .line1 {
+        transform: rotate(45deg) translate(12px, 12px);
+      }
+      .active .line2 {
+        opacity: 0;
+      }
+      .active .line3 {
+        transform: rotate(-45deg) translate(12px, -12px);
+      }
+    </style>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+    </style>
+    <link rel="stylesheet" href="stylesbhc.css" />
+    <script src="toggleText.js" defer></script>
+    <script src="toggleNav.js" defer></script>
+    <script src="toggleMenu.js" defer></script>
+    <script src="toggleClick.js" defer></script>
+    <script src="toggleDropdown.js" defer></script>
+    <script src="scrollTrigger.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.38/bundled/lenis.min.js"></script>
+    <script async
+            src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+    </script>
+  </head>
+  <body>
+    <header class="Navigation-wrapper">
+      <div class="announcement-bar">
+        <div class="phone-number">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fff"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 
+            19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 
+            2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 
+            2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 
+            12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+            ></path>
+          </svg>
+          <span> +1(825) xxx-xxxx</span>
+        </div>
+        <div class="address">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fff"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"
+            />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          <span> Your Address Here</span>
+        </div>
+        <div class="clinic-hours">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fff"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span> Mon - Fri : Opening Time - Closing Time</span>
+        </div>
+      </div>
+      <div class="Navigation">
+        <img
+          id="Logo"
+          class="Logo"
+          onclick="window.location.href='index.html'"
+          src="assets/zam zam logo dark.svg"
+          alt=""
+        />
+
+        <button
+          class="hamburger"
+          aria-controls="nav-section"
+          onclick="toggleMenu()"
+        >
+          <svg width="24" height="24" viewBox="0 0 100 100">
+            <line class="line line1" x1="10" y1="25" x2="90" y2="25"></line>
+            <line class="line line2" x1="10" y1="50" x2="90" y2="50"></line>
+            <line class="line line3" x1="10" y1="75" x2="90" y2="75"></line>
+          </svg>
+        </button>
+        <div class="nav-section" data-visible="false">
+          <nav>
+            <ul class="Items">
+              <li class="nav-item">
+                <a id="nav-link" class="nav-link" href="404.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a id="nav-link" class="nav-link" href="404.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a id="nav-link" class="nav-link" href="404.html">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a id="nav-link" class="nav-link" href="404.html">Services</a>
+              </li>
+            </ul>
+          </nav>
+
+          <button
+            id="cta-button"
+            class="cta-button"
+            onclick="window.location.href='404.html'"
+          >
+            <span id="cta-button-text">Book An Appointment</span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main>
+
+      <div id="Hero-container" class="Hero-container">
+        <video autoplay muted loop playsinline class="bg-video">
+          <source src="assets/hero video.mp4" type="video/mp4" />
+
+        </video>
+        <div class="hero-overlay"></div>
+
+
+        <div class="Landing-page-text fade-in">
+          <span>Family Practice & Walk-in Clinic </span>
+          <h1>Trusted Care For The Whole <span>Family.</span></h1>
+          <p>We ensure comprehensive patient-centered care.</p>
+          <button
+            id="cta-button"
+            class="cta-button"
+            onclick="window.location.href='404.html'"
+          >
+            Book An Appointment
+          </button>
+        </div>
+            <div class="hero-overlay-blur"></div>
+        </div>
+      </div>
+        <section class="services-wrapper">
+          <h3> Our Services</h3>
+          <div class="bento-grid fade-in">
+            <div class="bento-box box-a">
+              <div class="overlay"></div>
+              <img src="assets/background texture.png" alt="background texture"/>
+              <h4> Women’s Clinic</h4>
+            </div>
+            <div class="bento-box box-b">
+              <div class="overlay"></div>
+              <img src="assets/background texture.png" alt="background texture"/>
+              <h4> Pediatric Clinic</h4>
+            </div>
+            <div class="bento-box box-c">
+              <div class="overlay"></div>
+              <img src="assets/background texture.png" alt="background texture"/>
+              <h4> Men's Clinic</h4>
+            </div>
+            <div class="bento-box box-d">
+              <div class="overlay"></div>
+              <img src="assets/background texture.png" alt="background texture"/>
+              <h4> Family Health</h4>
+            </div>
+            <div class="bento-box box-e">
+              <div class="overlay"></div>
+              <img src="assets/background texture.png" alt="background texture"/>
+              <h4> Prescription Services</h4>
+            </div>
+            <div class="bento-box box-f">
+              <div class="overlay"></div>
+              <img src="assets/background texture.png" alt="background texture"/>
+              <h4> Physical Exams</h4>
+            </div>
+          </div>
+        </section>
+
+      <div class="Landing-page-section">
+        <div class="Landing-page-section-wrapper fade-in">
+          <div class="Landing-page-section-text">
+          <h2>Healthcare the right way</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam.
+          </div>
+          <div class="perk-wrapper">
+            <span class="perk perk-1"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="72"
+                height="72"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#25620c"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <h5>Same Day Appointments</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                  eiusmod tempor incididunt 
+              </p>
+            </span>
+            <span class="perk perk-2"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="72"
+                height="72"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#25620c"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <h5>Get Personalized Care</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                  eiusmod tempor incididunt 
+              </p>
+            </span>
+            <span class="perk perk-3"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="72"
+                height="72"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#25620c"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <h5>Open 7 Days A Week</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                  eiusmod tempor incididunt 
+              </p>
+            </span>
+          </div>
+          <!-- <button
+            class="cta-button"
+            onclick="window.location.href='contact.html'"
+          >
+            What We Offer
+          </button> -->
+        </div>
+      </div>
+
+
+
+
+      <!-- <div class="blog">
+            
+            <h2> Helpful tips </h2>
+            <div class="blog-container">
+                
+                <div class="blog-item fade-in">
+                    <h3>How to Make a Home Safer for Seniors: Tips and Tricks</h3>
+                    <p>
+                        As our loved ones age, their homes should evolve to meet their changing needs. Ensuring that a home is safe for seniors is crucial to promoting independence... 
+                        <a href="#blog1" class="read-more-link">Read More</a>
+                    </p>
+                </div>
+                
+                <div class="blog-item fade-in">
+                    <h3>Top 5 Myths About Aging and Elder Care</h3>
+                    <p>
+                        As our loved ones age, their homes should evolve to meet their changing needs. Ensuring that a home is safe for seniors is crucial to promoting independence... 
+                        <a href="#blog1" class="read-more-link">Read More</a>
+                    </p>
+                </div>
+                
+                
+                <div class="blog-item fade-in">
+                    <h3>How to Support a Loved One with Memory Loss</h3>
+                    <p>
+                        As our loved ones age, their homes should evolve to meet their changing needs. Ensuring that a home is safe for seniors is crucial to promoting independence... 
+                        <a href="#blog1" class="read-more-link">Read More</a>
+                    </p>
+                </div>
+               
+               
+                <div class="blog-item fade-in">
+                    <h3>The Role of Technology in Elder Care: How to Stay Connected and Safe</h3>
+                    <p>
+                        As our loved ones age, their homes should evolve to meet their changing needs. Ensuring that a home is safe for seniors is crucial to promoting independence... 
+                        <a href="#blog1" class="read-more-link">Read More</a>
+                    </p>
+                </div>
+                
+            </div>
+        </div> -->
+
+          <section id="location" class="map-section">
+            <div class="map-text">
+              <h2>Visit Us</h2>
+              <p>Find us at our main clinic location. We're always happy to see you!</p>
+            </div>
+            <div class="map-container">
+                 <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.6717234326232!2d3.379205415958983!3d6.524379223987671!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8e1c83f38c4d%3A0x7dfd51b1b22941d6!2sLagos!5e0!3m2!1sen!2sng!4v1615561549511!5m2!1sen!2sng"
+                  width="100%"
+                  height="400"
+                  style="border:0; border-radius: 20px;"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+          </section>
+
+      <!-- <div class="cta-section-container">
+            <div class="cta-section">
+                <h2> We are here to help </h2>
+                <p> Join our family today, give us a call.</p>
+                <button class="cta-button" onclick="window.location.href='contact.html'">Let's Talk</button>
+
+            </div>
+            
+        </div> -->
+        <section class="faq-section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-container">
+            
+            <div class="faq-item">
+              <button class="faq-question">What services does your clinic offer?</button>
+              <div class="faq-answer">
+                <p>We offer family medicine, walk-in care, immunizations, women’s health, chronic disease management, and more.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">Do I need an appointment to visit?</button>
+              <div class="faq-answer">
+                <p>No appointment is needed for walk-in care. However, we recommend booking ahead for follow-ups or family practice visits.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">Are you accepting new patients?</button>
+              <div class="faq-answer">
+                <p>Yes, we are accepting new family practice patients. Visit the clinic or register online to get started.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">Can I get a prescription refill at the walk-in?</button>
+              <div class="faq-answer">
+                <p>Yes, we can assess your condition and provide a refill when medically appropriate during a walk-in visit.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">Do you offer virtual appointments?</button>
+              <div class="faq-answer">
+                <p>Yes, we offer virtual care for many services. Call us or use our website to book a virtual consultation.</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+    </main>
+    <!-- <footer class="Footer">
+        <div class="footer-logo-section">
+            <img class="Footer-logo" src="assets/BEAVER HILLS CARE LOGO.svg" alt="Beaver Hills Care Logo" />
+        </div>
+        
+        <div class="footer-nav-section">
+            <nav>
+                <ul class="footer-items">
+                    <li class="footer-item">
+                        <a class="footer-link" href="nursing-care.html">Nursing Care</a>
+                    </li>
+                    <li class="footer-item">
+                        <a class="footer-link" href="home-care.html">Home Care</a>
+                    </li>
+                    <li class="footer-item">
+                        <a class="footer-link" href="dementia-care.html">Dementia Care</a>
+                    </li>
+                    <li class="footer-item">
+                        <a class="footer-link" href="end-of-life-care.html">End of Life Care</a>
+                    </li>
+                    <li class="footer-item">
+                        <a class="footer-link" href="why-we-care.html">Why We Care</a>
+                    </li>
+                    <li class="footer-item">
+                        <a class="footer-link" href="contact.html">Contact Us</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="footer-contact-section">
+            <p>© 2024 Designed by XVX. All rights reserved.</p>
+    </footer> -->
+    <script>
+        const lenis = new Lenis({
+            duration: 12,
+            easing: (t) => t, // linear easing — use `(t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))` for ease-out
+            smooth: true
+            });
+
+            // GSAP: force ScrollTrigger to update on scroll
+            function raf(time) {
+            lenis.raf(time);
+            ScrollTrigger.update(); // Sync with ScrollTrigger
+            requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+    </script>
+    <script defer>
+      const questions = document.querySelectorAll(".faq-question");
+
+      questions.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const isActive = btn.classList.contains("active");
+
+          // Close all answers
+          questions.forEach((q) => {
+            q.classList.remove("active");
+            q.nextElementSibling.style.maxHeight = null;
+          });
+
+          // Toggle the clicked one
+          if (!isActive) {
+            btn.classList.add("active");
+            const answer = btn.nextElementSibling;
+            answer.style.maxHeight = answer.scrollHeight + "px";
+          }
+        });
+      });
+    </script>
+    <script>
+      const logo = document.getElementById('Logo');
+      const ctaBtn = document.getElementById('cta-button');
+      const heroSection = document.getElementById('Hero-container');
+      const ctaText = document.getElementById('cta-button-text');
+      const navItems = document.querySelectorAll('.nav-link');
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              // User has scrolled past the hero section
+              logo.src = 'assets/zam zam logo light.svg';
+              ctaBtn.style.backgroundColor = '#000000'; // New color
+              ctaText.style.color = '#ffffff';
+              navItems.forEach(item => item.style.color = '#000000');
+            } else {
+              // Hero section is in view
+              logo.src = 'assets/zam zam logo dark.svg';
+              ctaBtn.style.backgroundColor = '#ffffff'; // Original color
+              ctaText.style.color = '#000000';
+              navItems.forEach(item => item.style.color = '#ffffff');
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      observer.observe(heroSection);
+    </script>
+
+
+  </body>
+</html>
